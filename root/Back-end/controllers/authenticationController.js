@@ -13,11 +13,11 @@ const login = asyncHandler(async (req,res) => {
     }
     if(role == 'patient'){
         const foundUser = await patient.findOne({CIN}).exec()
-        if(!foundUser || !foundUser.active){
+        if(!foundUser || ! foundUser.active){ // 
             return res.status(401).json({message : 'Unauthoried'})
         }
         const match = await bcrypt.compare(password,foundUser.password)
-        if(!match) return res.status(401).json({message : 'Unauthorized'})
+        if(!match) return res.status(401).json({message : 'unauthorized'})
         const accessToken = jwt.sign({
             "UserInfo":{ 
                 "CIN" : foundUser.CIN,
@@ -25,12 +25,12 @@ const login = asyncHandler(async (req,res) => {
             }
         },
             process.env.ACCESS_TOKEN_SECRET,
-            {expiresIN : '10s'}//a changer dans prod
+            { expiresIn : '100s' }//a changer dans prod
         )
         const refreshToken = jwt.sign(
             {"CIN":foundUser.CIN},
             process.env.REFRESH_TOKEN_SECRET,
-            {expiresIN : '1d'} //a changer apres
+            {expiresIn : '1d'} //a changer apres
         )
         //creeate secure cookie with tokens
         res.cookie('jwt',refreshToken,{
@@ -46,7 +46,7 @@ const login = asyncHandler(async (req,res) => {
     if(role == 'doctor'){
         const foundUser = await doctor.findOne({CIN}).exec()
         if(!foundUser || !foundUser.active){
-            return res.status(401).json({message : 'Unauthoried'})
+            return res.status(401).json({message : 'unauthoried'})
         }
         const match = await bcrypt.compare(password,foundUser.password)
         if(!match) return res.status(401).json({message : 'Unauthorized'})
@@ -57,12 +57,12 @@ const login = asyncHandler(async (req,res) => {
             }
         },
             process.env.ACCESS_TOKEN_SECRET,
-            {expiresIN : '10s'}//a changer dans prod
+            {expiresIn : '100s'}//a changer dans prod
         )
         const refreshToken = jwt.sign(
             {"CIN":foundUser.CIN},
             process.env.REFRESH_TOKEN_SECRET,
-            {expiresIN : '1d'} //a changer apres
+            {expiresIn : '1d'} //a changer apres
         )
         //creeate secure cookie with tokens
         res.cookie('jwt',refreshToken,{
@@ -88,12 +88,12 @@ const login = asyncHandler(async (req,res) => {
             }
         },
             process.env.ACCESS_TOKEN_SECRET,
-            {expiresIN : '10s'}//a changer dans prod
+            {expiresIn : '100s'}//a changer dans prod
         )
         const refreshToken = jwt.sign(
             {"CIN":foundUser.CIN},
             process.env.REFRESH_TOKEN_SECRET,
-            {expiresIN : '1d'} //a changer apres
+            {expiresIn : '1d'} //a changer apres
         )
         //creeate secure cookie with tokens
         res.cookie('jwt',refreshToken,{
@@ -113,11 +113,12 @@ const login = asyncHandler(async (req,res) => {
 //route / authentication/refresh
 //public access token expired
 const refresh = (req,res) =>{
-    const role = req.body
+    const {CIN,password,role} = req.body
     const cookies = req.cookies
     if(!cookies?.jwt) return res.status(401).json({
         message : 'Unauthorized'
     })
+    
     const refreshToken = cookies.jwt
     jwt.verify(
         refreshToken,
@@ -136,9 +137,10 @@ const refresh = (req,res) =>{
                             "role":foundUser.Role
                         }
                     },process.env.ACCESS_TOKEN_SECRET,
-                    {expiresIn : '10s'}
+                    {expiresIn : '100s'}
                 )
                 res.json({accessToken})
+                
             }
             if(role == 'doctor'){
                 const foundUser = await doctor.findOne({CIN : decoded.CIN}).exec()
@@ -152,7 +154,7 @@ const refresh = (req,res) =>{
                             "role":foundUser.role
                         }
                     },process.env.ACCESS_TOKEN_SECRET,
-                    {expiresIn : '10s'}
+                    {expiresIn : '100s'}
                 )
                 res.json({accessToken})
             }
@@ -168,7 +170,7 @@ const refresh = (req,res) =>{
                             "role":foundUser.Role
                         }
                     },process.env.ACCESS_TOKEN_SECRET,
-                    {expiresIn : '10s'}
+                    {expiresIn : '100s'}
                 )
                 res.json({accessToken})
             }

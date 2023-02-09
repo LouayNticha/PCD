@@ -13,20 +13,20 @@ const PORT = 3000;
 //connect to DB
 connectDB();
 
-//middlewares
-app.use(logger)
+//middlewares 
+app.use(logger) 
 app.use(cors(corsOptions))
-app.use(express.json())
+app.use(express.json()) 
 app.use(cookieParser())
 app.use('./',express.static(path.join(__dirname,'public')));
 
 app.use('/',require('./routes/api/root.js'))
 //route for the crud operations
-//app.use('/authentication',require('./routes/api/authentication.js'))  a activer apres  
-app.use('/patient',require('./routes/api/patientRoute'))
+app.use('/authentication',require('./routes/api/authentication.js'))   
+app.use('/createUsers',require('./routes/api/createUsersRoute'))
 
 //app.use('/')
-app.all('*',(req,res)=>{
+app.all('*',(req,res)=>{ 
     res.status(404);
     if (req.accepts('html')){
         res.sendFile(__dirname,'views','404.html')
