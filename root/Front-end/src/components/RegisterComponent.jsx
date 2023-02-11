@@ -18,7 +18,7 @@ export default function RegisterComponent(props) {
                     <input type="password" class="password" name="password" id="password" placeholder="Password"/>
                 </div>
                 <div className="pass-reset remember-box">
-                    <input type="checkbox" name="remember" class="remember" id="remember"/><span class="remember-text">Rememeber Password</span>
+                    <input type="checkbox" name="remember" class="remember" id="remember"/><span class="remember-text">Remember Password</span>
                 </div>
                 <button className="btn btn-login">Sign Up</button>
                 <p>Do you have an account?
