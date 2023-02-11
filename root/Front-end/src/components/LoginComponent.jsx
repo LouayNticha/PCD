@@ -1,4 +1,6 @@
 import React from 'react'
+import { useState ,useEffect } from 'react';
+
 
 
 
@@ -18,7 +20,7 @@ export default function LoginComponent(props){
                 <a href="#" class="reset-password">Forgot Password?</a>
             </div>
             <div className="pass-reset remember-box">
-                <input type="checkbox" name="remember" class="remember" id="remember"/><span class="remember-text">Rememeber Password</span>
+                <input type="checkbox" name="remember" class="remember" id="remember"/><span class="remember-text">Remember Password</span>
             </div>
             <button className="btn btn-login">Login</button>
             <p>Do you have an account?

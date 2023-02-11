@@ -2,27 +2,16 @@ import React from "react"
 import { useState } from "react";
 import RegisterComponent from "./components/RegisterComponent";
 import LoginComponent from "./components/LoginComponent";
-
-
-
+import { Route,Routes } from "react-router-dom"; 
+import LandingPage from './components/LandingPage'
 export default function App() {
-    const [formActive,setformActive] = useState(true);
 
-    function changeForms(){
-        setformActive(!formActive)
-    }
-    
     return (
-    <div className="container">
-        <div className="row">
-            <img src="/src/assets/img.jpg" alt="img" className="img"/>
-        </div>
-        <div className="row">
-            {formActive && <LoginComponent changeForms={changeForms} />}
-
-            {!formActive && <RegisterComponent changeForms={changeForms} />}
+    <div>
+        <Routes>
+            <Route path='/' element={<LandingPage />}></Route>
             
-        </div> 
+        </Routes>
     </div>
     )
 }
