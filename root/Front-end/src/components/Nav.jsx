@@ -106,6 +106,7 @@ export default function Nav() {
           </ul>
         </div>
         <div className={styles.toggle}></div>
+        */nest under main/*
         <div className={styles.main}>
           <div className={styles.topbar}>
             <div className={styles.toggle} onClick={handleToggle}>
@@ -124,7 +125,53 @@ export default function Nav() {
                       <img src="./assets/imgs/customer01.jpg" alt='user'></img>
                   </div>
           </div>
+          <div className={styles.cardBox}>
+                <div className={styles.card}>
+                    <div>
+                        <div className={styles.numbers}>1,504</div>
+                        <div className={styles.cardName}>total des visites</div>
+                    </div>
+
+                    <div className={styles.iconBx}>
+                        <ion-icon name="eye-outline"></ion-icon>
+                    </div>
+                </div>
+
+                <div className={styles.card}>
+                    <div>
+                        <div className={styles.numbers}>80</div>
+                        <div className={styles.cardName}>nombre de RDV</div>
+                    </div>
+
+                    <div className={styles.iconBx}>
+                        <ion-icon name="call-outline"></ion-icon>
+                    </div>
+                </div>
+
+                <div className={styles.card}>
+                    <div>
+                        <div className={styles.numbers}>284</div>
+                        <div className={styles.cardName}>nombre de Tests</div>
+                    </div>
+
+                    <div className={styles.iconBx}>
+                        <ion-icon name="flask-outline"></ion-icon>
+                    </div>
+                </div>
+
+                <div className={styles.card}>
+                    <div>
+                        <div className={styles.numbers}>8</div>
+                        <div className={styles.cardName}>absences ce mois</div>
+                    </div>
+
+                    <div className={styles.iconBx}>
+                    <ion-icon name="stats-chart-outline"></ion-icon>
+                    </div>
+                </div>
+            </div>
           </div>
+          
       </div>
     </div>
   );
