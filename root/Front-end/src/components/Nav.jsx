@@ -55,7 +55,7 @@ export default function Nav() {
                 <span className={styles.icon}>
                   <ion-icon name="people-outline"></ion-icon>
                 </span>
-                <span className={styles.title}>Customers</span>
+                <span className={styles.title}>Patients</span>
               </a>
             </li>
 
@@ -170,6 +170,86 @@ export default function Nav() {
                     </div>
                 </div>
             </div>
+          //here
+            <div className={styles.recentCustomers}>
+                    <div className={styles.cardHeader}>
+                        <h2>Recent Patients</h2>
+                    </div>
+
+                    <table>
+                        <tr>
+                            <td width="60px">
+                                <div className={styles.imgBx}><img src="assets/imgs/customer02.jpg" alt=""></img></div>
+                            </td>
+                            <td>
+                                <h4>mouhamed <br /> <span>tunis</span></h4>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td width="60px">
+                                <div className={styles.imgBx}><img src="assets/imgs/customer01.jpg" alt=""></img></div>
+                            </td>
+                            <td>
+                                <h4>salah <br /> <span>nabeul</span></h4>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td width="60px">
+                                <div className={styles.imgBx}><img src="assets/imgs/customer02.jpg" alt=""></img></div>
+                            </td>
+                            <td>
+                                <h4>ali <br /> <span>mahdia</span></h4>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td width="60px">
+                                <div className={styles.imgBx}><img src="assets/imgs/customer01.jpg" alt=""></img></div>
+                            </td>
+                            <td>
+                                <h4>amine <br /> <span>monastir</span></h4>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td width="60px">
+                                <div className={styles.imgBx}><img src="assets/imgs/customer02.jpg" alt=""></img></div>
+                            </td>
+                            <td>
+                                <h4>kamel<br /> <span>tunis</span></h4>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td width="60px">
+                                <div className={styles.imgBx}><img src="assets/imgs/customer01.jpg" alt=""></img></div>
+                            </td>
+                            <td>
+                                <h4>omar <br /> <span>bizerte</span></h4>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td width="60px">
+                                <div className={styles.imgBx}><img src="assets/imgs/customer01.jpg" alt=""></img></div>
+                            </td>
+                            <td>
+                                <h4>omar <br /> <span>bizerte</span></h4>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td width="60px">
+                                <div className={styles.imgBx}><img src="assets/imgs/customer02.jpg" alt=""></img></div>
+                            </td>
+                            <td>
+                                <h4>younes <br /> <span>tunis</span></h4>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
           </div>
           
       </div>
